@@ -17,6 +17,7 @@
 
     <ol>
         <li ng-repeat="todo in $ctrl.tasks"> <!-- todo represents the individual object -->
+            <span>{{$index +1 }}. </span> 
             <button ng-if="!todo.completed">Complete</button>
             <!-- ng-if will hide or show an element based on ! value - if its true it shows the element and if its false it hides it. ! Switched that default. -->
             <p ng-class="{completed: todo.completed}"> {{ todo.task }}</p>
