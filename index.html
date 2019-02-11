@@ -1,41 +1,45 @@
 <!DOCTYPE html>
-<html ng-app="todoApp" lang="en">
+<html ng-app="todoApp" lang="en">       <!-- to let angularjs know where to use the module -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
     <link rel="stylesheet" href="app/styles.css">
-    <title>Angular Pt1</title>
+    <title>AngularJS Todos</title>
 </head>
 <body>
-    <section ng-controller="TodoController as $ctrl">
+    <section ng-controller="TodoController as $ctrl">       <!-- Reference to Controller in HTML and will be referenced as $ctrl -->
     <h1>TODO List</h1>
     <h2> A place to store things you have to do!</h2>
-    <input type="text" placeholder="Filter your to-dos">
-
+    <input class="filter" ng-model="$ctrl.filter" type="text" placeholder="Filter your to-dos">         <!-- input to filter todos with model referencing the controller and filtering of data set -->
 
     <ol>
-        <li ng-repeat="todo in $ctrl.tasks"> <!-- todo represents the individual object -->
-            <span>{{$index +1 }}. </span> 
-            <button ng-if="!todo.completed">Complete</button>
-            <!-- ng-if will hide or show an element based on ! value - if its true it shows the element and if its false it hides it. ! Switched that default. -->
-            <p ng-class="{completed: todo.completed}"> {{ todo.task }}</p>
-            <a href="">
-                    <img src="app/xbutton.png"></a>
+        <li ng-repeat="todo in $ctrl.tasks | filter:$ctrl.filter">      <!-- todo represents the individual object of todos -->
+            <span>{{ $index +1 }}. </span> 
+            <!-- giving each todo an index number to be able to add directives to objects starting at 1 -->
+            <button ng-if="!todo.completed" ng-click="$ctrl.completedTasks($index)">Complete</button>
+            <!-- ng-if will hide or show an element - if its true it shows the element and if its false it hides it. ! Switched that default. -->
+            <!-- click will provide the disappearing of the button and the strikethrough to the index of the todo -->
+            <p ng-class="{completed: todo.completed}" contenteditable="true">{{ todo.task }}</p>
+            <!-- ngclass adding the class of completed to todo and contenteditable for bonus to have user edit any todo -->
+            <a href="" ng-click="$ctrl.delete($index);">
+                <img src="app/xbutton.png"></a>
+                <!-- reference to the xbutton material icon and to delete the index of any todo in list -->
         </li>
     </ol>
-    <input type="text" placeholder="Add your to-dos">
+    <form ng-submit="$ctrl.add($ctrl.newTodo)">
+    <input class="adbut" ng-model="$ctrl.newTodo.task" type="text" placeholder="Add your to-dos">
     <button class="add">Add</button>
+    <!-- ng submit to add another todo to the list using add button and add your todo input referencing the controller a new todo and the task array -->
+    </form>
 
-    <!-- <button class="xbutton"> <img src="xbutton.png" alt=""> </button> -->
 </section>
     
-
-
 
         <script src="https://code.angularjs.org/1.6.5/angular.js"> </script>
         <script src="app/app.module.js"></script>
         <script src="app/app.controller.js"></script>
+        <!-- scripts linked in order of angularjs, module, controller...always -->
 </body>
 </html>

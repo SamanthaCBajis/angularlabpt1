@@ -12,59 +12,62 @@ section {
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
     /* display: inline-block; */
     background-color: white;
-    width: 50%;
-    /* height: 10%; */
+    width: 40%;
+    height: 540px;
     border-radius: 1%;
-    /* height: 90%; */
     display: block;
     margin: 0 auto;
     color: black;
 }
 span {
     font-family: 'Open Sans', sans-serif;
-    display: inline;
-    margin-left: 22px;
+    display: inline-block;
+    /* margin-left: 22px; */
     color: black;
-    font-weight: 300;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 li {
     list-style-type: none;
-    margin-right: 50px;
-    margin: -22px;
     display: block;
-    margin-right:5px;
     font-size: 20px;
-    margin-bottom: 12px;
-    font-weight: 300;
+    font-weight: bold;
+    padding:-10px;
 
 }
 
 a {
-    margin-left: 85%;
-   /* margin-bottom: -60px; */
-    display: inline;
-    color: black;
-    font-weight: 300;
+    display: block;
+    margin-left: 470px;
+    margin-top: -50px;
+}
+
+img {
+    display: block;
+    width: 30px;
+    height: 30px; 
+  
 }
 
 p {
     font-family: 'Open Sans', sans-serif;
-    display: inline;
+    display: inline-block;
     color: black;
-    font-weight: 300;
+    font-weight: bold;
+
     
 }
 
 button {
-    display:inline;
-    margin-right:5px;
+    display: inline-block;
+    margin-right: 5px;
     color: #ff69b4;
     border: 2px solid #ff69b4;
-    border-radius: 10px;
-    padding: 10px;
-    font-size: 15px;
-    font-weight: 300;
+    border-radius: 8px;
+    padding: 7px;
+    font-size: 12px;
+    font-weight: 400;
 
 }
 
@@ -80,6 +83,7 @@ h2 {
     margin-top: -30px;
     padding-left: 25px;
     color: black;
+    font-weight: bold;
 }
 
 input {
@@ -88,8 +92,13 @@ input {
     border-radius: 10px;
     border: 1px solid #bbb;
     margin-left: 22px;
+    margin-bottom: -30px;
     display: inline-block;
-    margin-bottom: 20px;
+}
+
+.adbut {
+    margin-top: 10px;
+    margin-bottom: 8px;
 }
 
 input::placeholder {
@@ -99,12 +108,12 @@ input::placeholder {
 }
 
 .add {
-    width: 90%;
-    background-color: #ff1493;
+    width: 92%;
+    background: #ff1493;
     color: white;
     font-size: 20px;
-    margin-left: 25px;
-    margin-bottom: 35px;
-    padding: 10px;
+    margin-left: 21px;
+    margin-top: 10px;
+    padding: 12px;
     border-radius: 10px;
 }
